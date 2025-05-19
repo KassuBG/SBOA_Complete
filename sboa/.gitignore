@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyd
+
+# React build files
+frontend/build/
+frontend/node_modules/
+frontend/.env
+frontend/.DS_Store
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development

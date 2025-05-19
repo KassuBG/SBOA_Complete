@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-dotenv
+openai
+pydantic
+sqlalchemy
+asyncpg
+httpx
+stripe
+pandas
+scikit-learn
+prophet
+chromadb
+langchain
+tiktoken
+sentence-transformers
