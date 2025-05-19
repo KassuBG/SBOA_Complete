@@ -8,11 +8,67 @@
         "documentation": {}
     },
     {
+        "label": "query_rag",
+        "importPath": "utils.rag_toolkit",
+        "description": "utils.rag_toolkit",
+        "isExtraImport": true,
+        "detail": "utils.rag_toolkit",
+        "documentation": {}
+    },
+    {
         "label": "forecast_sales",
         "importPath": "utils.forecasting",
         "description": "utils.forecasting",
         "isExtraImport": true,
         "detail": "utils.forecasting",
+        "documentation": {}
+    },
+    {
+        "label": "forecast_sales",
+        "importPath": "utils.forecasting",
+        "description": "utils.forecasting",
+        "isExtraImport": true,
+        "detail": "utils.forecasting",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
         "documentation": {}
     },
     {
@@ -72,6 +128,22 @@
         "documentation": {}
     },
     {
+        "label": "lead_agent",
+        "importPath": "agents",
+        "description": "agents",
+        "isExtraImport": true,
+        "detail": "agents",
+        "documentation": {}
+    },
+    {
+        "label": "chat_agent",
+        "importPath": "agents",
+        "description": "agents",
+        "isExtraImport": true,
+        "detail": "agents",
+        "documentation": {}
+    },
+    {
         "label": "stripe",
         "kind": 6,
         "isExtraImport": true,
@@ -95,6 +167,22 @@
         "description": "dotenv",
         "isExtraImport": true,
         "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
         "documentation": {}
     },
     {
@@ -130,12 +218,216 @@
         "documentation": {}
     },
     {
+        "label": "billing",
+        "importPath": "routes",
+        "description": "routes",
+        "isExtraImport": true,
+        "detail": "routes",
+        "documentation": {}
+    },
+    {
+        "label": "agents",
+        "importPath": "routes",
+        "description": "routes",
+        "isExtraImport": true,
+        "detail": "routes",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard",
+        "importPath": "routes",
+        "description": "routes",
+        "isExtraImport": true,
+        "detail": "routes",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "json",
         "description": "json",
         "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "handle_chat",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.agents.chat_agent",
+        "description": "SBOA_Complete.sboa.backend.agents.chat_agent",
+        "peekOfCode": "def handle_chat(user_message):\n    response = query_rag(user_message)\n    return {\"response\": response}",
+        "detail": "SBOA_Complete.sboa.backend.agents.chat_agent",
+        "documentation": {}
+    },
+    {
+        "label": "generate_insights",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.agents.insight_agent",
+        "description": "SBOA_Complete.sboa.backend.agents.insight_agent",
+        "peekOfCode": "def generate_insights(data):\n    forecast = forecast_sales(data)\n    return {\"forecast\": forecast}",
+        "detail": "SBOA_Complete.sboa.backend.agents.insight_agent",
+        "documentation": {}
+    },
+    {
+        "label": "check_inventory",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.agents.inventory_agent",
+        "description": "SBOA_Complete.sboa.backend.agents.inventory_agent",
+        "peekOfCode": "def check_inventory(item_id, quantity):\n    # Dummy inventory check\n    return {\"item_id\": item_id, \"available\": quantity <= 20}",
+        "detail": "SBOA_Complete.sboa.backend.agents.inventory_agent",
+        "documentation": {}
+    },
+    {
+        "label": "generate_invoice",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.agents.invoice_agent",
+        "description": "SBOA_Complete.sboa.backend.agents.invoice_agent",
+        "peekOfCode": "def generate_invoice(order):\n    return {\n        \"invoice_id\": \"INV-\" + str(order[\"id\"]),\n        \"amount\": order[\"total\"],\n        \"status\": \"pending\"\n    }",
+        "detail": "SBOA_Complete.sboa.backend.agents.invoice_agent",
+        "documentation": {}
+    },
+    {
+        "label": "capture_leads",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.agents.lead_agent",
+        "description": "SBOA_Complete.sboa.backend.agents.lead_agent",
+        "peekOfCode": "def capture_leads(data):\n    score = 0\n    if data.get(\"email\") and data.get(\"interaction_count\", 0) > 2:\n        score = 90\n    return {\"lead_score\": score, \"details\": data}",
+        "detail": "SBOA_Complete.sboa.backend.agents.lead_agent",
+        "documentation": {}
+    },
+    {
+        "label": "create_campaign",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.agents.marketing_agent",
+        "description": "SBOA_Complete.sboa.backend.agents.marketing_agent",
+        "peekOfCode": "def create_campaign(product_name):\n    return {\n        \"campaign\": f\"Promote {product_name} via email and social ads\",\n        \"channels\": [\"email\", \"facebook\", \"instagram\"]\n    }",
+        "detail": "SBOA_Complete.sboa.backend.agents.marketing_agent",
+        "documentation": {}
+    },
+    {
+        "label": "score_lead",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.routes.agents",
+        "description": "SBOA_Complete.sboa.backend.routes.agents",
+        "peekOfCode": "def score_lead(data: dict):\n    return lead_agent.capture_leads(data)\n@router.post(\"/chat\")\ndef chat_response(data: dict):\n    return chat_agent.handle_chat(data[\"message\"])",
+        "detail": "SBOA_Complete.sboa.backend.routes.agents",
+        "documentation": {}
+    },
+    {
+        "label": "chat_response",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.routes.agents",
+        "description": "SBOA_Complete.sboa.backend.routes.agents",
+        "peekOfCode": "def chat_response(data: dict):\n    return chat_agent.handle_chat(data[\"message\"])",
+        "detail": "SBOA_Complete.sboa.backend.routes.agents",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "SBOA_Complete.sboa.backend.routes.agents",
+        "description": "SBOA_Complete.sboa.backend.routes.agents",
+        "peekOfCode": "router = APIRouter()\n@router.post(\"/lead\")\ndef score_lead(data: dict):\n    return lead_agent.capture_leads(data)\n@router.post(\"/chat\")\ndef chat_response(data: dict):\n    return chat_agent.handle_chat(data[\"message\"])",
+        "detail": "SBOA_Complete.sboa.backend.routes.agents",
+        "documentation": {}
+    },
+    {
+        "label": "create_checkout_session",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.routes.billing",
+        "description": "SBOA_Complete.sboa.backend.routes.billing",
+        "peekOfCode": "def create_checkout_session():\n    try:\n        session = stripe.checkout.Session.create(\n            payment_method_types=[\"card\"],\n            line_items=[\n                {\n                    \"price_data\": {\n                        \"currency\": \"usd\",\n                        \"product_data\": {\"name\": \"SBOA Pro Subscription\"},\n                        \"unit_amount\": 4900,",
+        "detail": "SBOA_Complete.sboa.backend.routes.billing",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "SBOA_Complete.sboa.backend.routes.billing",
+        "description": "SBOA_Complete.sboa.backend.routes.billing",
+        "peekOfCode": "router = APIRouter()\nstripe.api_key = os.getenv(\"STRIPE_SECRET_KEY\")\n@router.post(\"/create-checkout-session\")\ndef create_checkout_session():\n    try:\n        session = stripe.checkout.Session.create(\n            payment_method_types=[\"card\"],\n            line_items=[\n                {\n                    \"price_data\": {",
+        "detail": "SBOA_Complete.sboa.backend.routes.billing",
+        "documentation": {}
+    },
+    {
+        "label": "stripe.api_key",
+        "kind": 5,
+        "importPath": "SBOA_Complete.sboa.backend.routes.billing",
+        "description": "SBOA_Complete.sboa.backend.routes.billing",
+        "peekOfCode": "stripe.api_key = os.getenv(\"STRIPE_SECRET_KEY\")\n@router.post(\"/create-checkout-session\")\ndef create_checkout_session():\n    try:\n        session = stripe.checkout.Session.create(\n            payment_method_types=[\"card\"],\n            line_items=[\n                {\n                    \"price_data\": {\n                        \"currency\": \"usd\",",
+        "detail": "SBOA_Complete.sboa.backend.routes.billing",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard_metrics",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.routes.dashboard",
+        "description": "SBOA_Complete.sboa.backend.routes.dashboard",
+        "peekOfCode": "def dashboard_metrics():\n    return {\n        \"leads\": 120,\n        \"active_users\": 34,\n        \"revenue\": 5600\n    }",
+        "detail": "SBOA_Complete.sboa.backend.routes.dashboard",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "SBOA_Complete.sboa.backend.routes.dashboard",
+        "description": "SBOA_Complete.sboa.backend.routes.dashboard",
+        "peekOfCode": "router = APIRouter()\n@router.get(\"/metrics\")\ndef dashboard_metrics():\n    return {\n        \"leads\": 120,\n        \"active_users\": 34,\n        \"revenue\": 5600\n    }",
+        "detail": "SBOA_Complete.sboa.backend.routes.dashboard",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_by_id",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.utils.database",
+        "description": "SBOA_Complete.sboa.backend.utils.database",
+        "peekOfCode": "def get_user_by_id(user_id):\n    return {\"id\": user_id, \"name\": \"Test User\"}",
+        "detail": "SBOA_Complete.sboa.backend.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "forecast_sales",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.utils.forecasting",
+        "description": "SBOA_Complete.sboa.backend.utils.forecasting",
+        "peekOfCode": "def forecast_sales(data):\n    return [{\"day\": \"2025-05-16\", \"sales\": 430}, {\"day\": \"2025-05-17\", \"sales\": 480}]",
+        "detail": "SBOA_Complete.sboa.backend.utils.forecasting",
+        "documentation": {}
+    },
+    {
+        "label": "query_rag",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.utils.rag_toolkit",
+        "description": "SBOA_Complete.sboa.backend.utils.rag_toolkit",
+        "peekOfCode": "def query_rag(message):\n    return f\"Knowledge base result for '{message}'\"",
+        "detail": "SBOA_Complete.sboa.backend.utils.rag_toolkit",
+        "documentation": {}
+    },
+    {
+        "label": "get_settings",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.config",
+        "description": "SBOA_Complete.sboa.backend.config",
+        "peekOfCode": "def get_settings():\n    return {\n        \"stripe_key\": os.getenv(\"STRIPE_SECRET_KEY\", \"test_key\")\n    }",
+        "detail": "SBOA_Complete.sboa.backend.config",
+        "documentation": {}
+    },
+    {
+        "label": "root",
+        "kind": 2,
+        "importPath": "SBOA_Complete.sboa.backend.main",
+        "description": "SBOA_Complete.sboa.backend.main",
+        "peekOfCode": "def root():\n    return {\"message\": \"Welcome to Smart Business Operations Assistant (SBOA) API\"}",
+        "detail": "SBOA_Complete.sboa.backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "SBOA_Complete.sboa.backend.main",
+        "description": "SBOA_Complete.sboa.backend.main",
+        "peekOfCode": "app = FastAPI()\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\napp.include_router(billing.router, prefix=\"/billing\")\napp.include_router(agents.router, prefix=\"/agents\")",
+        "detail": "SBOA_Complete.sboa.backend.main",
         "documentation": {}
     },
     {
@@ -316,42 +608,6 @@
         "description": "sboa.backend.main",
         "peekOfCode": "app = FastAPI()\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\napp.include_router(billing.router, prefix=\"/billing\")\napp.include_router(agents.router, prefix=\"/agents\")",
         "detail": "sboa.backend.main",
-        "documentation": {}
-    },
-    {
-        "label": "_Known",
-        "kind": 6,
-        "importPath": "sboa.frontend.node_modules.flatted.python.flatted",
-        "description": "sboa.frontend.node_modules.flatted.python.flatted",
-        "peekOfCode": "class _Known:\n    def __init__(self):\n        self.key = []\n        self.value = []\nclass _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0",
-        "detail": "sboa.frontend.node_modules.flatted.python.flatted",
-        "documentation": {}
-    },
-    {
-        "label": "_String",
-        "kind": 6,
-        "importPath": "sboa.frontend.node_modules.flatted.python.flatted",
-        "description": "sboa.frontend.node_modules.flatted.python.flatted",
-        "peekOfCode": "class _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0\n    for _ in value:\n        keys.append(i)\n        i += 1\n    return keys",
-        "detail": "sboa.frontend.node_modules.flatted.python.flatted",
-        "documentation": {}
-    },
-    {
-        "label": "parse",
-        "kind": 2,
-        "importPath": "sboa.frontend.node_modules.flatted.python.flatted",
-        "description": "sboa.frontend.node_modules.flatted.python.flatted",
-        "peekOfCode": "def parse(value, *args, **kwargs):\n    json = _json.loads(value, *args, **kwargs)\n    wrapped = []\n    for value in json:\n        wrapped.append(_wrap(value))\n    input = []\n    for value in wrapped:\n        if isinstance(value, _String):\n            input.append(value.value)\n        else:",
-        "detail": "sboa.frontend.node_modules.flatted.python.flatted",
-        "documentation": {}
-    },
-    {
-        "label": "stringify",
-        "kind": 2,
-        "importPath": "sboa.frontend.node_modules.flatted.python.flatted",
-        "description": "sboa.frontend.node_modules.flatted.python.flatted",
-        "peekOfCode": "def stringify(value, *args, **kwargs):\n    known = _Known()\n    input = []\n    output = []\n    i = int(_index(known, input, value))\n    while i < len(input):\n        output.append(_transform(known, input, input[i]))\n        i += 1\n    return _json.dumps(output, *args, **kwargs)",
-        "detail": "sboa.frontend.node_modules.flatted.python.flatted",
         "documentation": {}
     },
     {
